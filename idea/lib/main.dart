@@ -10,29 +10,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.red[300],
+        backgroundColor: Colors.teal,
         body: SafeArea(
-          child: Row(
-            children: <Widget>[
-              Container(
-                color: Colors.blueGrey,
-                height: 100,
-                width: 100,
-                child: Text('Container 1'),
-              ),
-              Container(
-                color: Colors.blue,
-                height: 100,
-                width: 100,
-                child: Text('Container 2'),
-              ),
-              Container(
-                color: Colors.green,
-                height: 100,
-                width: 100,
-                child: Text('Container 3'),
-              ),
-            ],
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset('images/diamond.png', height: 100, width: 100),
+
+                SizedBox(height: 1),
+                Text('Nikhil Gupta', style: TextStyle(fontSize:25),),
+                RaisedButton(
+                  onPressed: () {},
+                  child: const Text('Enabled Button',
+                      style: TextStyle(fontSize: 20)),
+                ),
+                SizedBox(height: 10),
+                RaisedButton(
+                  onPressed: () {},
+                  child: const Text('Enabled Button',
+                      style: TextStyle(fontSize: 20)),
+                ),
+              ],
+            ),
           ),
         ),
       ),
