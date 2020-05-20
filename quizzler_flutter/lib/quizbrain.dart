@@ -12,8 +12,8 @@ class QuizBrain {
     Question(q: 'A slug\'s blood is green.', a: true)
   ];
 
-  void qstnNumber(){
-    if (_qstnnum < _questionBank.length) {
+  void nextQstn(){
+    if (_qstnnum < _questionBank.length-1) {
       _qstnnum++;
     }
   }
