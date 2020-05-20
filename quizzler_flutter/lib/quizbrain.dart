@@ -1,7 +1,6 @@
 import 'question.dart';
 
 class QuizBrain {
-
   int _qstnnum = 0;
 
   List<Question> _questionBank = [
@@ -12,8 +11,8 @@ class QuizBrain {
     Question(q: 'A slug\'s blood is green.', a: true)
   ];
 
-  void nextQstn(){
-    if (_qstnnum < _questionBank.length-1) {
+  void nextQstn() {
+    if (_qstnnum < _questionBank.length - 1) {
       _qstnnum++;
     }
   }
@@ -22,7 +21,19 @@ class QuizBrain {
     return _questionBank[_qstnnum].questionText;
   }
 
-  bool getQuestionAnswer(){
+  bool getQuestionAnswer() {
     return _questionBank[_qstnnum].questionAnswer;
+  }
+
+  bool isFinished() {
+    if (_qstnnum >= _questionBank.length - 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void reset() {
+    _qstnnum = 0;
   }
 }
