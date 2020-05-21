@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reuseableCard.dart';
 import 'iconContent.dart';
+import 'constants.dart';
 
-const bottomAppBarHeight = 90.0;
-const activeCardColor = Color(0xFF303030);
-const inActiveCardColor = Color(0xFF616161);
-const bottomAppBarColor = Colors.red;
 enum Gender {
   male,
   female,
@@ -27,43 +24,40 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReuseableCard(
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.male;
                       });
                     },
-                    child: ReuseableCard(
-                      colour: selectedGender == Gender.male
-                          ? activeCardColor
-                          : inActiveCardColor,
-                      cardChild: IconContent(
-                        faIcon: FontAwesomeIcons.mars,
-                        cardText: "Male",
-                      ),
+                    colour: selectedGender == Gender.male
+                        ? kactiveCardColor
+                        : kinkactiveCardColor,
+                    cardChild: IconContent(
+                      faIcon: FontAwesomeIcons.mars,
+                      cardText: "Male",
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReuseableCard(
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.female;
                       });
                     },
-                    child: ReuseableCard(
-                      colour: selectedGender == Gender.female
-                          ? activeCardColor
-                          : inActiveCardColor,
-                      cardChild: IconContent(
-                        faIcon: FontAwesomeIcons.venus,
-                        cardText: "Female",
-                      ),
+                    colour: selectedGender == Gender.female
+                        ? kactiveCardColor
+                        : kinkactiveCardColor,
+                    cardChild: IconContent(
+                      faIcon: FontAwesomeIcons.venus,
+                      cardText: "Female",
                     ),
                   ),
                 ),
@@ -72,7 +66,20 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReuseableCard(
-              colour: inActiveCardColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Height",
+                    style: ktextLabel,
+                  ),
+                  Text(
+                    '180',
+                    style: kbigTextLabel,
+                  ),
+                ],
+              ),
+              colour: kinkactiveCardColor,
             ),
           ),
           Expanded(
@@ -80,20 +87,20 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReuseableCard(
-                    colour: inActiveCardColor,
+                    colour: kinkactiveCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReuseableCard(
-                    colour: inActiveCardColor,
+                    colour: kinkactiveCardColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: bottomAppBarColor,
-            height: bottomAppBarHeight,
+            color: kbottomAppBarColor,
+            height: kbottomAppBarHeight,
             width: double.infinity,
             child: Center(
               child: Text(
