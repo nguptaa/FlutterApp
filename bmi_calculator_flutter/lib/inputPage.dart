@@ -4,13 +4,20 @@ import 'reuseableCard.dart';
 import 'iconContent.dart';
 
 const bottomAppBarHeight = 90.0;
-const activeCardColor = Color(0xFF424242);
+const activeCardColor = Color(0xFF303030);
+const inActiveCardColor = Color(0xFF616161);
 const bottomAppBarColor = Colors.red;
+enum Gender {
+  male,
+  female,
+}
 
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
 }
+
+Gender selectedGender;
 
 class _InputPageState extends State<InputPage> {
   @override
@@ -25,20 +32,38 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
-                    colour: activeCardColor,
-                    cardChild: IconContent(
-                      faIcon: FontAwesomeIcons.mars,
-                      cardText: "Male",
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    child: ReuseableCard(
+                      colour: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inActiveCardColor,
+                      cardChild: IconContent(
+                        faIcon: FontAwesomeIcons.mars,
+                        cardText: "Male",
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    colour: activeCardColor,
-                    cardChild: IconContent(
-                      faIcon: FontAwesomeIcons.venus,
-                      cardText: "Female",
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
+                    child: ReuseableCard(
+                      colour: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inActiveCardColor,
+                      cardChild: IconContent(
+                        faIcon: FontAwesomeIcons.venus,
+                        cardText: "Female",
+                      ),
                     ),
                   ),
                 ),
@@ -47,7 +72,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReuseableCard(
-              colour: activeCardColor,
+              colour: inActiveCardColor,
             ),
           ),
           Expanded(
@@ -55,12 +80,12 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReuseableCard(
-                    colour: activeCardColor,
+                    colour: inActiveCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReuseableCard(
-                    colour: activeCardColor,
+                    colour: inActiveCardColor,
                   ),
                 ),
               ],
@@ -70,10 +95,18 @@ class _InputPageState extends State<InputPage> {
             color: bottomAppBarColor,
             height: bottomAppBarHeight,
             width: double.infinity,
+            child: Center(
+              child: Text(
+                'CALCULATE',
+                style: TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
           )
         ],
       ),
     );
   }
 }
-
