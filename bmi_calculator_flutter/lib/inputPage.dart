@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'reuseableCard.dart';
+import 'iconContent.dart';
 
 const bottomAppBarHeight = 90.0;
 const activeCardColor = Color(0xFF424242);
@@ -25,7 +27,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReuseableCard(
                     colour: activeCardColor,
-                    cardChild: FirstRowCardContent(
+                    cardChild: IconContent(
                       faIcon: FontAwesomeIcons.mars,
                       cardText: "Male",
                     ),
@@ -34,7 +36,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReuseableCard(
                     colour: activeCardColor,
-                    cardChild: FirstRowCardContent(
+                    cardChild: IconContent(
                       faIcon: FontAwesomeIcons.venus,
                       cardText: "Female",
                     ),
@@ -75,49 +77,3 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class FirstRowCardContent extends StatelessWidget {
-
-  FirstRowCardContent({this.faIcon, this.cardText});
-  final IconData faIcon;
-  final String cardText; 
-  
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        FaIcon(
-          faIcon,
-          size: 80.0,
-        ),
-        SizedBox(
-          height: 18.0,
-        ),
-        Text(
-          cardText,
-          style: TextStyle(
-            fontSize: 20.0,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class ReuseableCard extends StatelessWidget {
-  ReuseableCard({@required this.colour, this.cardChild});
-  final Color colour;
-  final Widget cardChild;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: cardChild,
-      margin: EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        color: colour,
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-    );
-  }
-}
