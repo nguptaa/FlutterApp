@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reuseableCard.dart';
-import 'iconContent.dart';
-import 'constants.dart';
+import 'package:bmi_calculator/components/bottomBtn.dart';
+import 'package:bmi_calculator/components/reuseableCard.dart';
+import 'package:bmi_calculator/components/iconContent.dart';
+import 'package:bmi_calculator/components/roundIconBtn.dart';
+import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/calcBrain.dart';
+import 'resultPage.dart';
 
 enum Gender {
   male,
@@ -206,46 +210,20 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kbottomAppBarColor,
-            height: kbottomAppBarHeight,
-            width: double.infinity,
-            child: Center(
-              child: Text(
-                'CALCULATE',
-                style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.w600,
+          BottomBtn(
+            buttonTitle: 'CALCULATE',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(),
                 ),
-              ),
-            ),
-          )
+              );
+            },
+          ),
         ],
       ),
     );
   }
 }
 
-class RawMaterialBtn extends StatelessWidget {
-  RawMaterialBtn({@required this.iconaddsub, @required this.onPress});
-  final IconData iconaddsub;
-  final Function onPress;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      fillColor: Colors.red,
-      elevation: 8.0,
-      constraints: BoxConstraints.tightFor(
-        height: 56.0,
-        width: 56.0,
-      ),
-      onPressed: onPress,
-      shape: CircleBorder(),
-      child: Icon(
-        iconaddsub,
-        color: Colors.white,
-      ),
-    );
-  }
-}
