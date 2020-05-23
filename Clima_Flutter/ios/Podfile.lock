@@ -24,11 +24,11 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/permission_handler/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  geolocator: e054ad14f577d282c418eb5e32c5f0a8a5e6c69d
-  google_api_availability: 80c105ad2c0ed01c18cf779653da2cb939518192
-  permission_handler: 03dcf3ade9d5f398b8854b366cb9de718d3daa76
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  geolocator: 7e6cc2dc80dccbc6b1e781771cdef6d703701092
+  google_api_availability: f07cd62cdd46ec432b95a702e35e558b817e05aa
+  permission_handler: 047f11d44db785922214783da5f7a3cc8874c843
 
 PODFILE CHECKSUM: ebd43b443038e611b86ede96e613bd6033c49497
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.1
